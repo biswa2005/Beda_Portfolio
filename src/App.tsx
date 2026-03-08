@@ -17,7 +17,7 @@ export default function App() {
         <Philosophy />
         <Skills />
         <Services />
-        {/* <Projects /> */}
+        <Projects />
         <Contact />
       </div>
     </div>

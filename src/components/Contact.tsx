@@ -68,10 +68,10 @@ export function Contact() {
       };
 
       await emailjs.send(
-        "service_7yqv5tl", // Service ID
-        "template_nnumffd", // Template ID
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
         templateParams,
-        "7jSFMDcDExjdYi4d5", // Public Key
+        import.meta.env.VITE_PUBLIC_KEY
       );
 
       setIsSubmitting(false);

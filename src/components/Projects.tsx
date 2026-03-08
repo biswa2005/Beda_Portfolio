@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
 import { ExternalLink, Briefcase, Users, FileText, Rocket } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import pragatiImage from "figma:asset/3cb1e2bee31d11b13ba4b74787a645aea5fcdbb0.png";
-import sanjeevaniImage from "figma:asset/2286c74dd8306eb7dca8d4f5a3d01970d2ec35f3.png";
-import beyondPoweredImage from "figma:asset/0cda6dfd74b4168f2caf7f9109f61481ceba7f18.png";
-import trinetraImage from "figma:asset/8dc8072048bb3f90297fa1444268559bab2cd961.png";
+import pragati from "../assets/pragati.jpeg";
+import sanjeevani from "../assets/sanjeevani.jpeg";
+import beyondPoweredImage from "../assets/beyondpowered.jpeg";
+import trinetra from '../assets/trinetra.jpeg';
 
 /* ---------- TYPES ---------- */
 
@@ -40,11 +40,12 @@ export function Projects() {
           title: "Pragati Coaching Centre",
           description:
             "Complete UI design and full frontend development for an educational coaching center. Features modern design, responsive layout, and smooth animations.",
-          image: pragatiImage,
+          image: pragati,
           tools: ["Figma", "React.js", "Tailwind CSS", "Motion"],
           role: "UI/UX Design • Frontend Development",
           gradient: "from-cyan-500 to-blue-500",
           link: "https://www.pragatilive.com/",
+          badge: "Published",
         },
         {
           title: "Freelance 3D Design Projects",
@@ -78,16 +79,17 @@ export function Projects() {
           title: "Sanjeevani",
           description:
             "AI-powered healthcare chatbot providing medical information and assistance.",
-          image: sanjeevaniImage,
+          image: sanjeevani,
           tools: ["AI/ML", "NLP", "Healthcare APIs"],
           role: "AI Development • UX Design",
           gradient: "from-green-500 to-teal-500",
           link: "https://sanjeevani-five.vercel.app/",
+          inProgress: true,
         },
         {
           title: "Trinetra",
           description: "AI assistant designed for the visually impaired.",
-          image: trinetraImage,
+          image: trinetra,
           tools: ["Computer Vision", "AI/ML", "Voice API"],
           role: "AI Development • Product Design",
           gradient: "from-purple-500 to-pink-500",
@@ -182,19 +184,20 @@ export function Projects() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.7, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden"
+                      className="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden"
                     >
-                      {project.inProgress && (
-                        <div className="absolute top-4 right-4 px-3 py-1 bg-orange-500 rounded-full text-xs text-white">
-                          In Progress
-                        </div>
-                      )}
-
-                      {project.badge && (
-                        <div className="absolute top-4 right-4 px-3 py-1 bg-green-500 rounded-full text-xs text-white">
-                          {project.badge}
-                        </div>
-                      )}
+                      <div className="absolute top-4 right-4 z-10 flex flex-col items-end gap-2">
+                        {project.inProgress && (
+                          <span className="px-3 py-1 bg-orange-500 rounded-full text-xs font-medium text-white shadow-lg">
+                            In Progress
+                          </span>
+                        )}
+                        {project.badge && (
+                          <span className="px-3 py-1 bg-green-500 rounded-full text-xs font-medium text-white shadow-lg">
+                            {project.badge}
+                          </span>
+                        )}
+                      </div>
 
                       <div className="h-56 overflow-hidden">
                         <ImageWithFallback
